@@ -125,6 +125,18 @@ func TestURLs(t *testing.T) {
     assertStringSlicesEqual(t, expected, actual)
 }
 
+func TestLongURLs(t *testing.T) {
+    input := bufio.NewReader(strings.NewReader("github.com/mceldeen/words"))
+    expected := []string{"github.com/mceldeen/words"}
+    actual := Tokenize(input)
+
+    if len(expected) != len(actual) {
+        t.Error("Slices are not the same length")
+    }
+
+    assertStringSlicesEqual(t, expected, actual)
+}
+
 func TestSlashes(t *testing.T) {
     input := bufio.NewReader(strings.NewReader("Talk to tom/jim for info"))
     expected := []string{"Talk", "to", "tom", "jim", "for", "info"}
