@@ -114,8 +114,8 @@ func TestDashes(t *testing.T) {
 }
 
 func TestURLs(t *testing.T) {
-    input := bufio.NewReader(strings.NewReader("Go to http://www.google.com/ for info or bit.ly/123 but not bit .ly/123"))
-    expected := []string{"Go", "to", "http://www.google.com/", "for", "info", "or", "bit.ly/123", "but", "not", "bit", "ly", "123"}
+    input := bufio.NewReader(strings.NewReader("Go to http://www.google.com/ for info or bit.ly/123 but not bit .ly/123. Definitely https://www.pivotaltracker.com"))
+    expected := []string{"Go", "to", "http://www.google.com/", "for", "info", "or", "bit.ly/123", "but", "not", "bit", "ly", "123", "Definitely", "https://www.pivotaltracker.com"}
     actual := Tokenize(input)
 
     if len(expected) != len(actual) {

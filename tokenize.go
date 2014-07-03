@@ -69,8 +69,8 @@ func stripFromStart(word string) string {
 
 func isSeperator(b rune, word string) bool {
     if b == '/' {
-        w := strings.ToLower(word)
-        if w == "http:" || w == "http:/" {
+        last := word[len(word)-1:]
+        if last == ":" || last == "/" {
             return false
         } else if i := strings.LastIndex(word, "."); i > 0 && !isSeperator(rune(word[i-1]), "") {
             return false
