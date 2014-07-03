@@ -126,8 +126,8 @@ func TestURLs(t *testing.T) {
 }
 
 func TestLongURLs(t *testing.T) {
-    input := bufio.NewReader(strings.NewReader("github.com/mceldeen/words"))
-    expected := []string{"github.com/mceldeen/words"}
+    input := bufio.NewReader(strings.NewReader("github.com/mceldeen/words google.com/#q=test"))
+    expected := []string{"github.com/mceldeen/words", "google.com/#q=test"}
     actual := Tokenize(input)
 
     if len(expected) != len(actual) {
